@@ -2,10 +2,11 @@ import axios                            from 'axios';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk                            from 'redux-thunk';
 import reducers                         from '../reducers/combineReducers';
+import keys                             from '../../api/config/keys';
 
 export default (req) => {
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:3000/api',
+        baseURL: keys.baseURL,
         headers: { cookie: req.get('cookie') || '' }
     });
     
@@ -14,8 +15,6 @@ export default (req) => {
         {}, 
         compose(applyMiddleware(thunk.withExtraArgument(axiosInstance)))
     );
-
-    // .withExtraArgument(axiosInstance)
 
     return store;
 };

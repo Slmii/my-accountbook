@@ -7,6 +7,7 @@ import { hydrate }       from 'react-dom';
 import { renderRoutes }  from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
 import routes            from '../shared/routes';
+import keys              from '../api/config/keys';
 
 import { Provider }                     from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -15,7 +16,7 @@ import reducers                         from '../shared/reducers/combineReducers
 
 // THIS WILL PREPEND '/API' TO ALL API CALLS BY THE 'ACTIONS'
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000/api/'
+    baseURL: keys.baseURL
 });
 
 // THIS WILL BE THE INITIAL_STATE. THE INITIAL_STATE IS THE DATA FETCHED FROM THE SERVER

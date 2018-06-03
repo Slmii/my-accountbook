@@ -71,6 +71,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/api/config/dev.js":
+/*!*******************************!*\
+  !*** ./src/api/config/dev.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n// DEV.JS - DONT COMMIT THIS\nmodule.exports = {\n    googleClientID: '653217625689-64esa9g9u37hjb1hksduni51dds049ns.apps.googleusercontent.com',\n    googleClientSecret: 'yWxkEUdVXcIqyK5K9zvEsLbh',\n    mongoURI: 'mongodb://selami:cimbomTR@ds237620.mlab.com:37620/accountbook',\n    cookieKey1: 'dnuw&*ASBDua@#%ihf934fnxihDA(*#DNKASNDAfiwfhx89wey4',\n    cookieKey2: '&*DSABDBAUg6783gdaaug67T7qdba32jdaodnan$@%^#-bda',\n    baseURL: 'http://localhost:3000/api'\n};\n\n//# sourceURL=webpack:///./src/api/config/dev.js?");
+
+/***/ }),
+
 /***/ "./src/api/config/keys.js":
 /*!********************************!*\
   !*** ./src/api/config/keys.js ***!
@@ -79,7 +91,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nmodule.exports = {\n    googleClientID: '653217625689-64esa9g9u37hjb1hksduni51dds049ns.apps.googleusercontent.com',\n    googleClientSecret: 'yWxkEUdVXcIqyK5K9zvEsLbh',\n    mongoURI: 'mongodb://selami:cimbomTR@ds237620.mlab.com:37620/accountbook',\n    cookieKey1: 'dnuw&*ASBDua@#%ihf934fnxihDA(*#DNKASNDAfiwfhx89wey4',\n    cookieKey2: '&*DSABDBAUg6783gdaaug67T7qdba32jdaodnan$@%^#-bda'\n};\n\n//# sourceURL=webpack:///./src/api/config/keys.js?");
+eval("\n\n// KEYS.JS - FIGURE OUT WHAT SETS OF KEYS TO RETURN\nif (false) {} else {\n    // LOAD DEV KEYS\n    module.exports = __webpack_require__(/*! ./dev */ \"./src/api/config/dev.js\");\n}\n\n//# sourceURL=webpack:///./src/api/config/keys.js?");
 
 /***/ }),
 
@@ -115,7 +127,7 @@ eval("\n\nvar passport = __webpack_require__(/*! passport */ \"passport\");\n\nm
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar passport = __webpack_require__(/*! passport */ \"passport\");\nvar GoogleStrategy = __webpack_require__(/*! passport-google-oauth20 */ \"passport-google-oauth20\").Strategy;\nvar keys = __webpack_require__(/*! ../config/keys */ \"./src/api/config/keys.js\");\nvar User = mongoose.model('users');\n\n// THESE 2 FUNCTIONS USE THAT DATA THAT'S INSIDE THE COOKIE\npassport.serializeUser(function (user, done) {\n    return done(null, user.id);\n});\npassport.deserializeUser(function (id, done) {\n    User.findById(id).then(function (user) {\n        return done(null, user);\n    });\n});\n\npassport.use(new GoogleStrategy({\n    clientID: keys.googleClientID,\n    clientSecret: keys.googleClientSecret,\n    callbackURL: '/auth/google/callback'\n}, function (accessToken, refreshToken, profile, done) {\n    User.findOne({ googleId: profile.id }).then(function (user) {\n        if (user) {\n            // USER WITH THE GOOGLE PROFILE ID ALREADY EXISTS\n            done(null, user);\n        } else {\n            // ADD THE FOLLOWING DATA FROM THE GOOGLE INFO TO THE USERS COLLECTION\n            new User({\n                googleId: profile.id,\n                email: profile.emails[0].value,\n                name: profile.displayName\n            }).save().then(function (user) {\n                return done(null, user);\n            }).catch(function (error) {\n                return console.log(error);\n            });\n        }\n    }).catch(function (error) {\n        return console.log(error);\n    });\n}));\n\n//# sourceURL=webpack:///./src/api/services/passport.js?");
+eval("\n\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar passport = __webpack_require__(/*! passport */ \"passport\");\nvar GoogleStrategy = __webpack_require__(/*! passport-google-oauth20 */ \"passport-google-oauth20\").Strategy;\nvar keys = __webpack_require__(/*! ../config/keys */ \"./src/api/config/keys.js\");\nvar User = mongoose.model('users');\n\n// THESE 2 FUNCTIONS USE THAT DATA THAT'S INSIDE THE COOKIE\npassport.serializeUser(function (user, done) {\n    return done(null, user.id);\n});\npassport.deserializeUser(function (id, done) {\n    User.findById(id).then(function (user) {\n        return done(null, user);\n    });\n});\n\npassport.use(new GoogleStrategy({\n    clientID: keys.googleClientID,\n    clientSecret: keys.googleClientSecret,\n    callbackURL: '/auth/google/callback',\n    proxy: true\n}, function (accessToken, refreshToken, profile, done) {\n    User.findOne({ googleId: profile.id }).then(function (user) {\n        if (user) {\n            // USER WITH THE GOOGLE PROFILE ID ALREADY EXISTS\n            done(null, user);\n        } else {\n            // ADD THE FOLLOWING DATA FROM THE GOOGLE INFO TO THE USERS COLLECTION\n            new User({\n                googleId: profile.id,\n                email: profile.emails[0].value,\n                name: profile.displayName\n            }).save().then(function (user) {\n                return done(null, user);\n            }).catch(function (error) {\n                return console.log(error);\n            });\n        }\n    }).catch(function (error) {\n        return console.log(error);\n    });\n}));\n\n//# sourceURL=webpack:///./src/api/services/passport.js?");
 
 /***/ }),
 
@@ -303,7 +315,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _axios = __webpack_require__(/*! axios */ \"axios\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _combineReducers = __webpack_require__(/*! ../reducers/combineReducers */ \"./src/shared/reducers/combineReducers.js\");\n\nvar _combineReducers2 = _interopRequireDefault(_combineReducers);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function (req) {\n    var axiosInstance = _axios2.default.create({\n        baseURL: 'http://localhost:3000/api',\n        headers: { cookie: req.get('cookie') || '' }\n    });\n\n    var store = (0, _redux.createStore)(_combineReducers2.default, {}, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance))));\n\n    // .withExtraArgument(axiosInstance)\n\n    return store;\n};\n\n//# sourceURL=webpack:///./src/shared/helpers/store.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _axios = __webpack_require__(/*! axios */ \"axios\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _combineReducers = __webpack_require__(/*! ../reducers/combineReducers */ \"./src/shared/reducers/combineReducers.js\");\n\nvar _combineReducers2 = _interopRequireDefault(_combineReducers);\n\nvar _keys = __webpack_require__(/*! ../../api/config/keys */ \"./src/api/config/keys.js\");\n\nvar _keys2 = _interopRequireDefault(_keys);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function (req) {\n    var axiosInstance = _axios2.default.create({\n        baseURL: _keys2.default.baseURL,\n        headers: { cookie: req.get('cookie') || '' }\n    });\n\n    var store = (0, _redux.createStore)(_combineReducers2.default, {}, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance))));\n\n    return store;\n};\n\n//# sourceURL=webpack:///./src/shared/helpers/store.js?");
 
 /***/ }),
 
