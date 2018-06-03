@@ -2,6 +2,7 @@ const autoprefixer		 = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin 	 = require('uglifyjs-webpack-plugin');
 const nodeExternals 	 = require('webpack-node-externals');
 const path 	  			 = require('path');
 const webpack 			 = require('webpack');
@@ -61,7 +62,14 @@ const clientConfig = {
 	devtool: isProduction ? 'source-map' : 'inline-source-map',
 	optimization: {
 		minimizer: [
-		  new OptimizeCSSAssetsPlugin({})
+			new UglifyJsPlugin({
+				test: /\.js$/,
+				exclude: /node_modules/,
+				parallel: true,
+				sourceMap: true,
+				cache: true,
+			}),
+		  	new OptimizeCSSAssetsPlugin({})
 		]
 	},
 	plugins: [
@@ -69,7 +77,7 @@ const clientConfig = {
 		new ExtractTextPlugin('styles.css'),
 		new webpack.DefinePlugin({
 			ISCLIENT: "true"
-		})
+		}),
 	],
 };
 

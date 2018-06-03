@@ -10,7 +10,8 @@
         "dev:server": "nodemon --watch build --exec \"node build/server.js\"",
         "dev:build-server-client": "webpack --mode development --watch",
         "build:dev": "webpack --mode development",
-        "build:prod": "cross-env NODE_ENV=production webpack -p --mode production",
+        "build:prod": "cross-env NODE_ENV=production webpack -p",
+        "start": "node build/server.js",
         "heroku-postbuild": "npm run build:prod"
     },
     "dependencies": {
@@ -71,6 +72,7 @@
         "sass-loader": "^6.0.7",
         "serialize-javascript": "^1.5.0",
         "style-loader": "^0.20.3",
+        "uglifyjs-webpack-plugin": "^1.2.5",
         "webpack": "^4.8.3",
         "webpack-cli": "^2.0.12",
         "webpack-merge": "^4.1.2",
