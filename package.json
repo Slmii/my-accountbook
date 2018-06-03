@@ -16,7 +16,7 @@
         "build:dev": "webpack --mode development",
         "build:prod": "cross-env NODE_ENV=production webpack -p",
         "start": "node build/server.js",
-        "heroku-postbuild": "npm run build:dev"
+        "heroku-postbuild": "npm run build:prod"
     },
     "dependencies": {
         "autoprefixer": "^8.6.0",
