@@ -1,1 +1,590 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=44)}([function(e,t){e.exports=require("react")},function(e,t){e.exports=require("react-redux")},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.fetchAdmins=t.FETCH_ADMINS=t.fetchCurrentUser=t.FETCH_CURRENT_USER=t.fetchUsers=t.FETCH_USERS=void 0;var r,o=n(10);(r=o)&&r.__esModule;function a(e){return function(){var t=e.apply(this,arguments);return new Promise(function(e,n){return function r(o,a){try{var u=t[o](a),i=u.value}catch(e){return void n(e)}if(!u.done)return Promise.resolve(i).then(function(e){r("next",e)},function(e){r("throw",e)});e(i)}("next")})}}var u=t.FETCH_USERS="fetch_users",i=(t.fetchUsers=function(){return e=a(regeneratorRuntime.mark(function e(t,n,r){return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,r.get("/users").then(function(e){t({type:u,response:e})});case 2:return e.abrupt("return",e.sent);case 3:case"end":return e.stop()}},e,void 0)})),function(t,n,r){return e.apply(this,arguments)};var e},t.FETCH_CURRENT_USER="fetch_current_user"),l=(t.fetchCurrentUser=function(){return e=a(regeneratorRuntime.mark(function e(t,n,r){return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,r.get("/current_user").then(function(e){t({type:i,response:e})});case 2:return e.abrupt("return",e.sent);case 3:case"end":return e.stop()}},e,void 0)})),function(t,n,r){return e.apply(this,arguments)};var e},t.FETCH_ADMINS="fetch_admins");t.fetchAdmins=function(){return e=a(regeneratorRuntime.mark(function e(t,n,r){return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,r.get("/admins").then(function(e){t({type:l,response:e})});case 2:return e.abrupt("return",e.sent);case 3:case"end":return e.stop()}},e,void 0)})),function(t,n,r){return e.apply(this,arguments)};var e}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r,o=n(0),a=(r=o)&&r.__esModule?r:{default:r},u=n(12);t.default=function(e){var t=e.title,n=e.ogTitle,r=e.ogURL;return a.default.createElement(u.Helmet,null,a.default.createElement("title",null,t),a.default.createElement("meta",{property:"og:title",content:n}),a.default.createElement("meta",{property:"og:url",content:r}))}},function(e,t){e.exports=require("react-router-dom")},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r,o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(0),u=(r=a)&&r.__esModule?r:{default:r},i=n(1),l=n(4);t.default=function(e){var t=function(t){function n(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(n.__proto__||Object.getPrototypeOf(n)).apply(this,arguments))}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(n,u.default.Component),o(n,[{key:"render",value:function(){switch(this.props.authUser){case!1:return u.default.createElement(l.Redirect,{to:"/login"});case null:return u.default.createElement("div",null,"Loading...");default:return u.default.createElement(e,this.props)}}}]),n}();return(0,i.connect)()(t)}},function(e,t){e.exports=require("passport")},function(e,t){e.exports=require("mongoose")},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},o=(s(n(0)),s(n(24))),a=s(n(21)),u=s(n(19)),i=s(n(17)),l=s(n(16)),c=s(n(14));function s(e){return e&&e.__esModule?e:{default:e}}var f=[r({},o.default,{routes:[r({},a.default,{path:"/",exact:!0}),r({},u.default,{path:"/login"}),r({},i.default,{path:"/admins"}),r({},l.default,{path:"/users"}),r({},c.default)]})];t.default=f},function(e,t){e.exports=require("redux")},function(e,t){e.exports=require("axios")},function(e,t){e.exports=require("react-router-config")},function(e,t){e.exports=require("react-helmet")},function(e,t,n){"use strict";e.exports={googleClientID:"653217625689-64esa9g9u37hjb1hksduni51dds049ns.apps.googleusercontent.com",googleClientSecret:"yWxkEUdVXcIqyK5K9zvEsLbh",mongoURI:"mongodb://selami:cimbomTR@ds237620.mlab.com:37620/accountbook",cookieKey1:"dnuw&*ASBDua@#%ihf934fnxihDA(*#DNKASNDAfiwfhx89wey4",cookieKey2:"&*DSABDBAUg6783gdaaug67T7qdba32jdaodnan$@%^#-bda"}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=u(n(0)),o=n(4),a=u(n(3));function u(e){return e&&e.__esModule?e:{default:e}}t.default={component:function(e){var t=e.staticContext;(void 0===t?{}:t).notFound=!0;return r.default.createElement("div",{className:"row justify-content-md-center"},r.default.createElement("div",{className:"col-md-12 text-center"},r.default.createElement(a.default,{title:"404: Page not found",ogTitle:"Page not found",ogURL:"http://localhost:3000"}),r.default.createElement("h1",null,"404: PAGE NOT FOUND"),r.default.createElement("p",null,r.default.createElement(o.Link,{to:"/",className:"navbar-brand"},"Go back to the Home Page"))))}}},function(e,t){},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}();n(15);var o=c(n(0)),a=n(1),u=n(2),i=c(n(5)),l=c(n(3));function c(e){return e&&e.__esModule?e:{default:e}}var s=function(e){function t(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){this.props.fetchUsers()}},{key:"renderUsers",value:function(){return this.props.users.map(function(e){var t=e.id,n=e.name;return o.default.createElement("li",{key:t,className:"list-group-item"},n)})}},{key:"render",value:function(){return o.default.createElement("div",{className:"row justify-content-md-center"},o.default.createElement("div",{className:"col-md-12 text-center"},o.default.createElement(l.default,{title:"Mi Accounting | Users List",ogTitle:"Users List",ogURL:"http://localhost:3000/users"}),o.default.createElement("h1",null,"Here is a list of all the users!"),o.default.createElement("ul",{className:"list-group",style:{width:"50%",marginLeft:"25%"}},this.renderUsers())))}}]),t}();t.default={component:(0,a.connect)(function(e){return{users:e.users,authUser:e.authUser}},{fetchUsers:u.fetchUsers})((0,i.default)(s)),loadData:function(e){return(0,e.dispatch)((0,u.fetchUsers)())}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=c(n(0)),a=n(1),u=n(2),i=c(n(5)),l=c(n(3));function c(e){return e&&e.__esModule?e:{default:e}}var s=function(e){function t(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"componentDidMount",value:function(){this.props.fetchAdmins()}},{key:"renderAdmins",value:function(){return this.props.admins.map(function(e){return o.default.createElement("li",{key:e.id,className:"list-group-item"},e.name)})}},{key:"render",value:function(){return o.default.createElement("div",{className:"row justify-content-md-center"},o.default.createElement("div",{className:"col-md-12 text-center"},o.default.createElement(l.default,{title:"Mi Accounting | Admins List",ogTitle:"Admins List",ogURL:"http://localhost:3000/admins"}),o.default.createElement("h1",null,"Here is a list of all the admin users!"),o.default.createElement("ul",{className:"list-group",style:{width:"50%",marginLeft:"25%"}},this.renderAdmins())))}}]),t}();t.default={component:(0,a.connect)(function(e){return{admins:e.admins,authUser:e.authUser}},{fetchAdmins:u.fetchAdmins})((0,i.default)(s)),loadData:function(e){return(0,e.dispatch)((0,u.fetchAdmins)())}}},function(e,t){},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}();n(18);var o=i(n(0)),a=n(1),u=i(n(3));function i(e){return e&&e.__esModule?e:{default:e}}var l=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.state={authUser:e.authUser},n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,o.default.Component),r(t,[{key:"render",value:function(){var e=this.state.authUser?"You are logged in":"Please login";return o.default.createElement("div",null,o.default.createElement(u.default,{title:"Mi Accounting | Login",ogTitle:"Login Page",ogURL:"http://localhost:3000"}),o.default.createElement("div",{className:"row text-center",style:{display:"flex",alignItems:"center"}},o.default.createElement("div",{className:"col-md-12"},o.default.createElement("h1",null,e))))}}]),t}();t.default={component:(0,a.connect)(function(e){return{authUser:e.authUser}})(l)}},function(e,t){},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),n(20);var r=i(n(0)),o=n(1),a=i(n(5)),u=i(n(3));function i(e){return e&&e.__esModule?e:{default:e}}t.default={component:(0,o.connect)(function(e){return{authUser:e.authUser}})((0,a.default)(function(){return r.default.createElement("div",null,r.default.createElement(u.default,{title:"Mi Accounting | Home Page",ogTitle:"Home Page",ogURL:"http://localhost:3000"}),r.default.createElement("div",{className:"row text-center",style:{display:"flex",alignItems:"center"}},r.default.createElement("div",{className:"col-md-12"},r.default.createElement("h1",null,"Welcome"),r.default.createElement("p",null,"Check this out"))),r.default.createElement("div",{className:"row text-center"},r.default.createElement("div",{className:"col-md-12"},r.default.createElement("button",{type:"button",className:"btn btn-primary",onClick:function(){return console.log("I am pressed!")}},"Press me"))))}))}},function(e,t){},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Header=void 0;var r,o=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),a=n(0),u=(r=a)&&r.__esModule?r:{default:r},i=n(1),l=n(4);n(22);var c=t.Header=function(e){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t);var n=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.state={path:e.authUser?"/api/logout":"/auth/google",text:e.authUser?"Logout":"Login",loggedIn:e.authUser},n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(t,u.default.Component),o(t,[{key:"render",value:function(){var e=this.state,t=e.path,n=e.text,r=e.loggedIn;return u.default.createElement("nav",{className:"navbar sticky-top navbar-expand-md navbar-dark bg-dark"},u.default.createElement(l.Link,{to:"/",className:"navbar-brand"},"Mi Accounting"),u.default.createElement("button",{className:"navbar-toggler navbar-toggler-right",type:"button","data-toggle":"collapse","data-target":"#collapsingNavbar","aria-controls":"collapsingNavbar","aria-expanded":"false","aria-label":"Toggle navigation"},u.default.createElement("span",{className:"navbar-toggler-icon"})),u.default.createElement("div",{className:"collapse navbar-collapse",id:"collapsingNavbar"},u.default.createElement("ul",{className:"navbar-nav ml-auto"},r&&u.default.createElement("li",{className:"nav-item"},u.default.createElement(l.NavLink,{className:"nav-link",to:"/users",activeClassName:"is-active"},"Users")),r&&u.default.createElement("li",{className:"nav-item"},u.default.createElement(l.NavLink,{className:"nav-link",to:"/admins",activeClassName:"is-active"},"Admins")),u.default.createElement("li",{className:"nav-item"},u.default.createElement("a",{className:"nav-link",href:t},n)))))}}]),t}();t.default=(0,i.connect)(function(e){return{authUser:e.authUser}})(c)},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=i(n(0)),o=n(11),a=(n(4),n(2)),u=i(n(23));i(n(8));function i(e){return e&&e.__esModule?e:{default:e}}t.default={component:function(e){var t=e.route;return r.default.createElement("div",null,r.default.createElement(u.default,null),r.default.createElement("div",{className:"container"},(0,o.renderRoutes)(t.routes)))},loadData:function(e){return(0,e.dispatch)((0,a.fetchCurrentUser)())}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(2);t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],t=arguments[1];switch(t.type){case r.FETCH_USERS:return t.response.data;default:return e}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(2);t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],t=arguments[1];switch(t.type){case r.FETCH_ADMINS:return t.response.data;default:return e}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(2);t.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,t=arguments[1];switch(t.type){case r.FETCH_CURRENT_USER:return t.response.data||!1;default:return e}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(9),o=i(n(27)),a=i(n(26)),u=i(n(25));function i(e){return e&&e.__esModule?e:{default:e}}t.default=(0,r.combineReducers)({users:u.default,admins:a.default,authUser:o.default})},function(e,t){e.exports=require("redux-thunk")},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=i(n(10)),o=n(9),a=i(n(29)),u=i(n(28));function i(e){return e&&e.__esModule?e:{default:e}}t.default=function(e){var t=r.default.create({baseURL:"http://localhost:3000/api",headers:{cookie:e.get("cookie")||""}});return(0,o.createStore)(u.default,{},(0,o.compose)((0,o.applyMiddleware)(a.default.withExtraArgument(t))))}},function(e,t,n){"use strict";var r=n(6);e.exports=function(e){e.get("/auth/google",r.authenticate("google",{scope:["profile","email"]})),e.get("/auth/google/callback",r.authenticate("google",{failureRedirect:"/login"}),function(e,t){t.redirect("/")}),e.get("/api/current_user",function(e,t){t.send(e.user)}),e.get("/api/logout",function(e,t){e.logout(),t.redirect("/")})}},function(e,t){e.exports=require("serialize-javascript")},function(e,t){e.exports=require("react-dom/server")},function(e,t){e.exports=require("express-http-proxy")},function(e,t){e.exports=require("react-loadable")},function(e,t){e.exports=require("express")},function(e,t){e.exports=require("cors")},function(e,t){e.exports=require("cookie-session")},function(e,t){e.exports=require("body-parser")},function(e,t){e.exports=require("passport-google-oauth20")},function(e,t,n){"use strict";var r=n(7),o=n(6),a=n(40).Strategy,u=n(13),i=r.model("users");o.serializeUser(function(e,t){return t(null,e.id)}),o.deserializeUser(function(e,t){i.findById(e).then(function(e){return t(null,e)})}),o.use(new a({clientID:u.googleClientID,clientSecret:u.googleClientSecret,callbackURL:"/auth/google/callback"},function(e,t,n,r){i.findOne({googleId:n.id}).then(function(e){e?r(null,e):new i({googleId:n.id,email:n.emails[0].value,name:n.displayName}).save().then(function(e){return r(null,e)}).catch(function(e){return console.log(e)})}).catch(function(e){return console.log(e)})}))},function(e,t,n){"use strict";var r=n(7),o=new(0,r.Schema)({googleId:String,email:String,name:String});r.model("users",o)},function(e,t){e.exports=require("babel-polyfill")},function(e,t,n){"use strict";n(43),n(42),n(41);var r=_(n(39)),o=_(n(38)),a=_(n(37)),u=_(n(36)),i=(_(n(35)),_(n(7))),l=_(n(6)),c=(_(n(34)),_(n(0))),s=n(12),f=n(1),d=n(11),p=n(33),m=n(4),h=_(n(32)),g=_(n(31)),v=_(n(13)),y=_(n(30)),b=_(n(8));function _(e){return e&&e.__esModule?e:{default:e}}i.default.connect(v.default.mongoURI);var E=(0,u.default)(),x=process.env.PORT||3e3;E.use((0,a.default)()),E.use(r.default.json()),E.use(u.default.static("public")),E.use((0,o.default)({maxAge:2592e6,keys:[v.default.cookieKey1,v.default.cookieKey2]})),E.use(l.default.initialize()),E.use(l.default.session()),(0,g.default)(E),E.get("/api/users",function(e,t){t.json([{id:1,name:"Selami Cetinguney"},{id:2,name:"Lina Cetinguney"},{id:3,name:"Baby Cetinguney"}])}),E.get("/api/admins",function(e,t){t.json([{id:1,name:"Admin 1"},{id:2,name:"Admin 2"},{id:3,name:"Admin 3"}])}),E.get("*",function(e,t){var n=(0,y.default)(e),r=(0,d.matchRoutes)(b.default,e.path).map(function(e){var t=e.route;return t.loadData?t.loadData(n):null}).map(function(e){if(e)return new Promise(function(t,n){e.then(t).catch(t)})});Promise.all(r).then(function(){var r={},o=(0,p.renderToString)(c.default.createElement(f.Provider,{store:n},c.default.createElement(m.StaticRouter,{location:e.path,context:r},c.default.createElement("div",null,(0,d.renderRoutes)(b.default))))),a=s.Helmet.renderStatic(),u='<!DOCTYPE html>\n            \x3c!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--\x3e\n            \x3c!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--\x3e\n            \x3c!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--\x3e\n            \x3c!--[if gt IE 8]>\x3c!--\x3e <html> \x3c!--<![endif]--\x3e\n            <html>\n            <head>\n                '+a.title.toString()+'\n                <meta charset="UTF-8">\n                <meta name="viewport" content="width=device-width, initial-scale=1">\n                '+a.meta.toString()+'\n\n                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">\n                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">\n                <link rel="stylesheet" type="text/css" href="styles.css" defer />\n            </head>\n\n            <body>\n                <div id=\'root-app\'>'+o+'</div>\n\n                <script src="bundle.js" defer><\/script>\n                <script>window.INITIAL_STATE = '+(0,h.default)(n.getState())+'<\/script>\n                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"><\/script>\n                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"><\/script>\n            </body>\n            </html>';if(r.url)return t.redirect(303,r.url);r.notFound&&t.status(404),t.send(u)})}),E.listen(x,function(){return console.log("Server is up! Listening to port",x)})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/server/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/api/config/keys.js":
+/*!********************************!*\
+  !*** ./src/api/config/keys.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nmodule.exports = {\n    googleClientID: '653217625689-64esa9g9u37hjb1hksduni51dds049ns.apps.googleusercontent.com',\n    googleClientSecret: 'yWxkEUdVXcIqyK5K9zvEsLbh',\n    mongoURI: 'mongodb://selami:cimbomTR@ds237620.mlab.com:37620/accountbook',\n    cookieKey1: 'dnuw&*ASBDua@#%ihf934fnxihDA(*#DNKASNDAfiwfhx89wey4',\n    cookieKey2: '&*DSABDBAUg6783gdaaug67T7qdba32jdaodnan$@%^#-bda'\n};\n\n//# sourceURL=webpack:///./src/api/config/keys.js?");
+
+/***/ }),
+
+/***/ "./src/api/models/User.js":
+/*!********************************!*\
+  !*** ./src/api/models/User.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar Schema = mongoose.Schema;\n\n// CREATE A NEW USER COLLECTION\n\nvar userSchema = new Schema({\n    googleId: String,\n    email: String,\n    name: String\n});\n\nmongoose.model('users', userSchema);\n\n//# sourceURL=webpack:///./src/api/models/User.js?");
+
+/***/ }),
+
+/***/ "./src/api/routes/authRoutes.js":
+/*!**************************************!*\
+  !*** ./src/api/routes/authRoutes.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar passport = __webpack_require__(/*! passport */ \"passport\");\n\nmodule.exports = function (app) {\n    // AUTHENTICATE WHEN GOING TO THIS ROUTE\n    app.get('/auth/google', passport.authenticate('google', {\n        scope: ['profile', 'email']\n    }));\n\n    // CALLBACK URL FOR GOOGLE\n    app.get('/auth/google/callback', passport.authenticate('google', {\n        failureRedirect: '/login'\n    }), function (req, res) {\n        // SUCCESSFULL AUTHENTICATION, REDIRECT TO HOME\n        res.redirect('/');\n    });\n\n    app.get('/api/current_user', function (req, res) {\n        res.send(req.user);\n    });\n\n    app.get('/api/logout', function (req, res) {\n        req.logout();\n        res.redirect('/');\n    });\n};\n\n//# sourceURL=webpack:///./src/api/routes/authRoutes.js?");
+
+/***/ }),
+
+/***/ "./src/api/services/passport.js":
+/*!**************************************!*\
+  !*** ./src/api/services/passport.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\nvar passport = __webpack_require__(/*! passport */ \"passport\");\nvar GoogleStrategy = __webpack_require__(/*! passport-google-oauth20 */ \"passport-google-oauth20\").Strategy;\nvar keys = __webpack_require__(/*! ../config/keys */ \"./src/api/config/keys.js\");\nvar User = mongoose.model('users');\n\n// THESE 2 FUNCTIONS USE THAT DATA THAT'S INSIDE THE COOKIE\npassport.serializeUser(function (user, done) {\n    return done(null, user.id);\n});\npassport.deserializeUser(function (id, done) {\n    User.findById(id).then(function (user) {\n        return done(null, user);\n    });\n});\n\npassport.use(new GoogleStrategy({\n    clientID: keys.googleClientID,\n    clientSecret: keys.googleClientSecret,\n    callbackURL: '/auth/google/callback'\n}, function (accessToken, refreshToken, profile, done) {\n    User.findOne({ googleId: profile.id }).then(function (user) {\n        if (user) {\n            // USER WITH THE GOOGLE PROFILE ID ALREADY EXISTS\n            done(null, user);\n        } else {\n            // ADD THE FOLLOWING DATA FROM THE GOOGLE INFO TO THE USERS COLLECTION\n            new User({\n                googleId: profile.id,\n                email: profile.emails[0].value,\n                name: profile.displayName\n            }).save().then(function (user) {\n                return done(null, user);\n            }).catch(function (error) {\n                return console.log(error);\n            });\n        }\n    }).catch(function (error) {\n        return console.log(error);\n    });\n}));\n\n//# sourceURL=webpack:///./src/api/services/passport.js?");
+
+/***/ }),
+
+/***/ "./src/server/index.js":
+/*!*****************************!*\
+  !*** ./src/server/index.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n__webpack_require__(/*! babel-polyfill */ \"babel-polyfill\");\n\n__webpack_require__(/*! ../api/models/User */ \"./src/api/models/User.js\");\n\n__webpack_require__(/*! ../api/services/passport */ \"./src/api/services/passport.js\");\n\nvar _bodyParser = __webpack_require__(/*! body-parser */ \"body-parser\");\n\nvar _bodyParser2 = _interopRequireDefault(_bodyParser);\n\nvar _cookieSession = __webpack_require__(/*! cookie-session */ \"cookie-session\");\n\nvar _cookieSession2 = _interopRequireDefault(_cookieSession);\n\nvar _cors = __webpack_require__(/*! cors */ \"cors\");\n\nvar _cors2 = _interopRequireDefault(_cors);\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _reactLoadable = __webpack_require__(/*! react-loadable */ \"react-loadable\");\n\nvar _reactLoadable2 = _interopRequireDefault(_reactLoadable);\n\nvar _mongoose = __webpack_require__(/*! mongoose */ \"mongoose\");\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nvar _passport = __webpack_require__(/*! passport */ \"passport\");\n\nvar _passport2 = _interopRequireDefault(_passport);\n\nvar _expressHttpProxy = __webpack_require__(/*! express-http-proxy */ \"express-http-proxy\");\n\nvar _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactHelmet = __webpack_require__(/*! react-helmet */ \"react-helmet\");\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _reactRouterConfig = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _serializeJavascript = __webpack_require__(/*! serialize-javascript */ \"serialize-javascript\");\n\nvar _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);\n\nvar _authRoutes = __webpack_require__(/*! ../api/routes/authRoutes */ \"./src/api/routes/authRoutes.js\");\n\nvar _authRoutes2 = _interopRequireDefault(_authRoutes);\n\nvar _keys = __webpack_require__(/*! ../api/config/keys */ \"./src/api/config/keys.js\");\n\nvar _keys2 = _interopRequireDefault(_keys);\n\nvar _store = __webpack_require__(/*! ../shared/helpers/store */ \"./src/shared/helpers/store.js\");\n\nvar _store2 = _interopRequireDefault(_store);\n\nvar _routes = __webpack_require__(/*! ../shared/routes */ \"./src/shared/routes.js\");\n\nvar _routes2 = _interopRequireDefault(_routes);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_mongoose2.default.connect(_keys2.default.mongoURI);\n\nvar app = (0, _express2.default)();\nvar port = process.env.PORT || 3000;\n\napp.use((0, _cors2.default)());\napp.use(_bodyParser2.default.json());\napp.use(_express2.default.static('public'));\n\n// TELL 'PASSPORT' TO MAKE USE THE COOKIES, AND ASSIGN IT TO THE 'REQ', WHICH REPRESENT THE LOADED SESSION\napp.use((0, _cookieSession2.default)({\n    // SET COOKIE TO 30 DAYS\n    maxAge: 30 * 24 * 60 * 60 * 1000,\n    // ENCRYPT COOKIE, CHOOSE RANDOM ONE FROM ARRAY\n    keys: [_keys2.default.cookieKey1, _keys2.default.cookieKey2]\n}));\napp.use(_passport2.default.initialize());\napp.use(_passport2.default.session());\n\n(0, _authRoutes2.default)(app);\n\napp.get('/api/users', function (req, res) {\n    res.json([{\n        id: 1,\n        name: 'Selami Cetinguney'\n    }, {\n        id: 2,\n        name: 'Lina Cetinguney'\n    }, {\n        id: 3,\n        name: 'Baby Cetinguney'\n    }]);\n});\n\napp.get('/api/admins', function (req, res) {\n    res.json([{\n        id: 1,\n        name: 'Admin 1'\n    }, {\n        id: 2,\n        name: 'Admin 2'\n    }, {\n        id: 3,\n        name: 'Admin 3'\n    }]);\n});\n\napp.get('*', function (req, res) {\n    var store = (0, _store2.default)(req);\n\n    // RETURNS AN ARRAY OF PROMISES || NULL\n    // CHECKS IF THE COMPONENT (ROUTE) HAS A FUNTION CALLED 'LOADDATA'\n    var promises = (0, _reactRouterConfig.matchRoutes)(_routes2.default, req.path).map(function (_ref) {\n        var route = _ref.route;\n\n        return route.loadData ? route.loadData(store) : null;\n    }).map(function (promise) {\n        // LOOP THROUGH THE PROMISES ARRAY\n        if (promise) {\n            // IF THE CURRENT PROMISE IS TRUE, WRAP IT WITH A NEW PROMISE AND RESOLVE IT\n            return new Promise(function (resolve, reject) {\n                promise.then(resolve).catch(resolve);\n            });\n        }\n    });\n\n    // RUN THE PROMISE, GET THE CORRESPONDING ROUTE, AND CALL THE 'LOADDATA' FUNCTION\n    Promise.all(promises).then(function () {\n        var context = {};\n\n        var content = (0, _server.renderToString)(_react2.default.createElement(\n            _reactRedux.Provider,\n            { store: store },\n            _react2.default.createElement(\n                _reactRouterDom.StaticRouter,\n                { location: req.path, context: context },\n                _react2.default.createElement(\n                    'div',\n                    null,\n                    (0, _reactRouterConfig.renderRoutes)(_routes2.default)\n                )\n            )\n        ));\n\n        var helmet = _reactHelmet.Helmet.renderStatic();\n\n        var renderer = '<!DOCTYPE html>\\n            <!--[if lt IE 7]>      <html class=\"no-js lt-ie9 lt-ie8 lt-ie7\"> <![endif]-->\\n            <!--[if IE 7]>         <html class=\"no-js lt-ie9 lt-ie8\"> <![endif]-->\\n            <!--[if IE 8]>         <html class=\"no-js lt-ie9\"> <![endif]-->\\n            <!--[if gt IE 8]><!--> <html> <!--<![endif]-->\\n            <html>\\n            <head>\\n                ' + helmet.title.toString() + '\\n                <meta charset=\"UTF-8\">\\n                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n                ' + helmet.meta.toString() + '\\n\\n                <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\\n                <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.0.10/css/all.css\" integrity=\"sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg\" crossorigin=\"anonymous\">\\n                <link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" defer />\\n            </head>\\n\\n            <body>\\n                <div id=\\'root-app\\'>' + content + '</div>\\n\\n                <script src=\"bundle.js\" defer></script>\\n                <script>window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '</script>\\n                <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>\\n                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>\\n            </body>\\n            </html>';\n\n        if (context.url) {\n            return res.redirect(303, context.url);\n        }\n\n        if (context.notFound) {\n            res.status(404);\n        }\n\n        res.send(renderer);\n    });\n});\n\napp.listen(port, function () {\n    return console.log('Server is up! Listening to port', port);\n});\n\n//# sourceURL=webpack:///./src/server/index.js?");
+
+/***/ }),
+
+/***/ "./src/shared/App.js":
+/*!***************************!*\
+  !*** ./src/shared/App.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterConfig = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _users = __webpack_require__(/*! ./actions/users */ \"./src/shared/actions/users.js\");\n\nvar _Header = __webpack_require__(/*! ./components/Header/Header */ \"./src/shared/components/Header/Header.js\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nvar _routes = __webpack_require__(/*! ./routes */ \"./src/shared/routes.js\");\n\nvar _routes2 = _interopRequireDefault(_routes);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar App = function App(_ref) {\n    var route = _ref.route;\n    return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_Header2.default, null),\n        _react2.default.createElement(\n            'div',\n            { className: 'container' },\n            (0, _reactRouterConfig.renderRoutes)(route.routes)\n        )\n    );\n};\n\nexports.default = {\n    component: App,\n    loadData: function loadData(_ref2) {\n        var dispatch = _ref2.dispatch;\n        return dispatch((0, _users.fetchCurrentUser)());\n    }\n};\n\n//# sourceURL=webpack:///./src/shared/App.js?");
+
+/***/ }),
+
+/***/ "./src/shared/actions/users.js":
+/*!*************************************!*\
+  !*** ./src/shared/actions/users.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.fetchAdmins = exports.FETCH_ADMINS = exports.fetchCurrentUser = exports.FETCH_CURRENT_USER = exports.fetchUsers = exports.FETCH_USERS = undefined;\n\nvar _axios = __webpack_require__(/*! axios */ \"axios\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nvar FETCH_USERS = exports.FETCH_USERS = 'fetch_users';\nvar fetchUsers = exports.fetchUsers = function fetchUsers() {\n    return function () {\n        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {\n            return regeneratorRuntime.wrap(function _callee$(_context) {\n                while (1) {\n                    switch (_context.prev = _context.next) {\n                        case 0:\n                            _context.next = 2;\n                            return api.get('/users').then(function (response) {\n                                dispatch({\n                                    type: FETCH_USERS,\n                                    response: response\n                                });\n                            });\n\n                        case 2:\n                            return _context.abrupt('return', _context.sent);\n\n                        case 3:\n                        case 'end':\n                            return _context.stop();\n                    }\n                }\n            }, _callee, undefined);\n        }));\n\n        return function (_x, _x2, _x3) {\n            return _ref.apply(this, arguments);\n        };\n    }();\n};\n\nvar FETCH_CURRENT_USER = exports.FETCH_CURRENT_USER = 'fetch_current_user';\nvar fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {\n    return function () {\n        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {\n            return regeneratorRuntime.wrap(function _callee2$(_context2) {\n                while (1) {\n                    switch (_context2.prev = _context2.next) {\n                        case 0:\n                            _context2.next = 2;\n                            return api.get('/current_user').then(function (response) {\n                                dispatch({\n                                    type: FETCH_CURRENT_USER,\n                                    response: response\n                                });\n                            });\n\n                        case 2:\n                            return _context2.abrupt('return', _context2.sent);\n\n                        case 3:\n                        case 'end':\n                            return _context2.stop();\n                    }\n                }\n            }, _callee2, undefined);\n        }));\n\n        return function (_x4, _x5, _x6) {\n            return _ref2.apply(this, arguments);\n        };\n    }();\n};\n\nvar FETCH_ADMINS = exports.FETCH_ADMINS = 'fetch_admins';\nvar fetchAdmins = exports.fetchAdmins = function fetchAdmins() {\n    return function () {\n        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState, api) {\n            return regeneratorRuntime.wrap(function _callee3$(_context3) {\n                while (1) {\n                    switch (_context3.prev = _context3.next) {\n                        case 0:\n                            _context3.next = 2;\n                            return api.get('/admins').then(function (response) {\n                                dispatch({\n                                    type: FETCH_ADMINS,\n                                    response: response\n                                });\n                            });\n\n                        case 2:\n                            return _context3.abrupt('return', _context3.sent);\n\n                        case 3:\n                        case 'end':\n                            return _context3.stop();\n                    }\n                }\n            }, _callee3, undefined);\n        }));\n\n        return function (_x7, _x8, _x9) {\n            return _ref3.apply(this, arguments);\n        };\n    }();\n};\n\n//# sourceURL=webpack:///./src/shared/actions/users.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/AdminList/AdminList.js":
+/*!******************************************************!*\
+  !*** ./src/shared/components/AdminList/AdminList.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _users = __webpack_require__(/*! ../../actions/users */ \"./src/shared/actions/users.js\");\n\nvar _requireAuth = __webpack_require__(/*! ../hoc/requireAuth */ \"./src/shared/components/hoc/requireAuth.js\");\n\nvar _requireAuth2 = _interopRequireDefault(_requireAuth);\n\nvar _helmet = __webpack_require__(/*! ../../helpers/helmet */ \"./src/shared/helpers/helmet.js\");\n\nvar _helmet2 = _interopRequireDefault(_helmet);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar AdminList = function (_React$Component) {\n    _inherits(AdminList, _React$Component);\n\n    function AdminList() {\n        _classCallCheck(this, AdminList);\n\n        return _possibleConstructorReturn(this, (AdminList.__proto__ || Object.getPrototypeOf(AdminList)).apply(this, arguments));\n    }\n\n    _createClass(AdminList, [{\n        key: 'componentDidMount',\n\n        // THIS IS FOR NAVIGATION WITHIN THE APPLICATION\n        value: function componentDidMount() {\n            this.props.fetchAdmins();\n        }\n    }, {\n        key: 'renderAdmins',\n        value: function renderAdmins() {\n            return this.props.admins.map(function (admin) {\n                return _react2.default.createElement(\n                    'li',\n                    { key: admin.id, className: 'list-group-item' },\n                    admin.name\n                );\n            });\n        }\n    }, {\n        key: 'render',\n        value: function render() {\n            var headInfo = {\n                title: 'Mi Accounting | Admins List',\n                ogTitle: 'Admins List',\n                ogURL: 'http://localhost:3000/admins'\n            };\n\n            return _react2.default.createElement(\n                'div',\n                { className: 'row justify-content-md-center' },\n                _react2.default.createElement(\n                    'div',\n                    { className: 'col-md-12 text-center' },\n                    _react2.default.createElement(_helmet2.default, headInfo),\n                    _react2.default.createElement(\n                        'h1',\n                        null,\n                        'Here is a list of all the admin users!'\n                    ),\n                    _react2.default.createElement(\n                        'ul',\n                        { className: 'list-group', style: { width: \"50%\", marginLeft: \"25%\" } },\n                        this.renderAdmins()\n                    )\n                )\n            );\n        }\n    }]);\n\n    return AdminList;\n}(_react2.default.Component);\n\n;\n\nvar mapStateToProps = function mapStateToProps(_ref) {\n    var admins = _ref.admins,\n        authUser = _ref.authUser;\n\n    return {\n        admins: admins,\n        authUser: authUser\n    };\n};\n\nexports.default = {\n    // HOC, THIS WILL RUN THE REQUIRED AUTH FUNCTION AND PASS BACK ALL THE PROPS\n    component: (0, _reactRedux.connect)(mapStateToProps, { fetchAdmins: _users.fetchAdmins })((0, _requireAuth2.default)(AdminList)),\n    loadData: function loadData(_ref2) {\n        var dispatch = _ref2.dispatch;\n        return dispatch((0, _users.fetchAdmins)());\n    }\n};\n\n//# sourceURL=webpack:///./src/shared/components/AdminList/AdminList.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Header/Header.js":
+/*!************************************************!*\
+  !*** ./src/shared/components/Header/Header.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.Header = undefined;\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\n__webpack_require__(/*! ./styles.scss */ \"./src/shared/components/Header/styles.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Header = exports.Header = function (_React$Component) {\n    _inherits(Header, _React$Component);\n\n    function Header(props) {\n        _classCallCheck(this, Header);\n\n        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));\n\n        _this.state = {\n            path: props.authUser ? '/api/logout' : '/auth/google',\n            text: props.authUser ? 'Logout' : 'Login',\n            loggedIn: props.authUser\n        };\n        return _this;\n    }\n\n    _createClass(Header, [{\n        key: 'render',\n        value: function render() {\n            var _state = this.state,\n                path = _state.path,\n                text = _state.text,\n                loggedIn = _state.loggedIn;\n\n\n            return _react2.default.createElement(\n                'nav',\n                { className: 'navbar sticky-top navbar-expand-md navbar-dark bg-dark' },\n                _react2.default.createElement(\n                    _reactRouterDom.Link,\n                    { to: '/', className: 'navbar-brand' },\n                    'Mi Accounting'\n                ),\n                _react2.default.createElement(\n                    'button',\n                    { className: 'navbar-toggler navbar-toggler-right', type: 'button', 'data-toggle': 'collapse', 'data-target': '#collapsingNavbar', 'aria-controls': 'collapsingNavbar', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation' },\n                    _react2.default.createElement('span', { className: 'navbar-toggler-icon' })\n                ),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'collapse navbar-collapse', id: 'collapsingNavbar' },\n                    _react2.default.createElement(\n                        'ul',\n                        { className: 'navbar-nav ml-auto' },\n                        loggedIn && _react2.default.createElement(\n                            'li',\n                            { className: 'nav-item' },\n                            _react2.default.createElement(\n                                _reactRouterDom.NavLink,\n                                { className: 'nav-link', to: '/users', activeClassName: 'is-active' },\n                                'Users'\n                            )\n                        ),\n                        loggedIn && _react2.default.createElement(\n                            'li',\n                            { className: 'nav-item' },\n                            _react2.default.createElement(\n                                _reactRouterDom.NavLink,\n                                { className: 'nav-link', to: '/admins', activeClassName: 'is-active' },\n                                'Admins'\n                            )\n                        ),\n                        _react2.default.createElement(\n                            'li',\n                            { className: 'nav-item' },\n                            _react2.default.createElement(\n                                'a',\n                                { className: 'nav-link', href: path },\n                                text\n                            )\n                        )\n                    )\n                )\n            );\n        }\n    }]);\n\n    return Header;\n}(_react2.default.Component);\n\n;\n\nvar mapStateToProps = function mapStateToProps(state) {\n    return {\n        authUser: state.authUser\n    };\n};\n\nexports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);\n\n//# sourceURL=webpack:///./src/shared/components/Header/Header.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Header/styles.scss":
+/*!**************************************************!*\
+  !*** ./src/shared/components/Header/styles.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/shared/components/Header/styles.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Home/Home.js":
+/*!********************************************!*\
+  !*** ./src/shared/components/Home/Home.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\n__webpack_require__(/*! ./styles.scss */ \"./src/shared/components/Home/styles.scss\");\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _requireAuth = __webpack_require__(/*! ../hoc/requireAuth */ \"./src/shared/components/hoc/requireAuth.js\");\n\nvar _requireAuth2 = _interopRequireDefault(_requireAuth);\n\nvar _helmet = __webpack_require__(/*! ../../helpers/helmet */ \"./src/shared/helpers/helmet.js\");\n\nvar _helmet2 = _interopRequireDefault(_helmet);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n    var headInfo = {\n        title: 'Mi Accounting | Home Page',\n        ogTitle: 'Home Page',\n        ogURL: 'http://localhost:3000'\n    };\n\n    return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_helmet2.default, headInfo),\n        _react2.default.createElement(\n            'div',\n            { className: 'row text-center', style: { display: \"flex\", alignItems: \"center\" } },\n            _react2.default.createElement(\n                'div',\n                { className: 'col-md-12' },\n                _react2.default.createElement(\n                    'h1',\n                    null,\n                    'Welcome'\n                ),\n                _react2.default.createElement(\n                    'p',\n                    null,\n                    'Check this out'\n                )\n            )\n        ),\n        _react2.default.createElement(\n            'div',\n            { className: 'row text-center' },\n            _react2.default.createElement(\n                'div',\n                { className: 'col-md-12' },\n                _react2.default.createElement(\n                    'button',\n                    { type: 'button', className: 'btn btn-primary', onClick: function onClick() {\n                            return console.log('I am pressed!');\n                        } },\n                    'Press me'\n                )\n            )\n        )\n    );\n};\n\nvar mapStateToProps = function mapStateToProps(_ref) {\n    var authUser = _ref.authUser;\n\n    return { authUser: authUser };\n};\n\nexports.default = {\n    component: (0, _reactRedux.connect)(mapStateToProps)((0, _requireAuth2.default)(Home))\n};\n\n//# sourceURL=webpack:///./src/shared/components/Home/Home.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Home/styles.scss":
+/*!************************************************!*\
+  !*** ./src/shared/components/Home/styles.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/shared/components/Home/styles.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Login/Login.js":
+/*!**********************************************!*\
+  !*** ./src/shared/components/Login/Login.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\n__webpack_require__(/*! ./styles.scss */ \"./src/shared/components/Login/styles.scss\");\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _helmet = __webpack_require__(/*! ../../helpers/helmet */ \"./src/shared/helpers/helmet.js\");\n\nvar _helmet2 = _interopRequireDefault(_helmet);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar Login = function (_React$Component) {\n    _inherits(Login, _React$Component);\n\n    function Login(props) {\n        _classCallCheck(this, Login);\n\n        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));\n\n        _this.state = {\n            authUser: props.authUser\n        };\n        return _this;\n    }\n\n    _createClass(Login, [{\n        key: 'render',\n        value: function render() {\n\n            var headInfo = {\n                title: 'Mi Accounting | Login',\n                ogTitle: 'Login Page',\n                ogURL: 'http://localhost:3000'\n            };\n\n            var authUser = this.state.authUser;\n\n            var text = authUser ? 'You are logged in' : 'Please login';\n\n            return _react2.default.createElement(\n                'div',\n                null,\n                _react2.default.createElement(_helmet2.default, headInfo),\n                _react2.default.createElement(\n                    'div',\n                    { className: 'row text-center', style: { display: \"flex\", alignItems: \"center\" } },\n                    _react2.default.createElement(\n                        'div',\n                        { className: 'col-md-12' },\n                        _react2.default.createElement(\n                            'h1',\n                            null,\n                            text\n                        )\n                    )\n                )\n            );\n        }\n    }]);\n\n    return Login;\n}(_react2.default.Component);\n\n;\n\nvar mapStateToProps = function mapStateToProps(_ref) {\n    var authUser = _ref.authUser;\n\n    return { authUser: authUser };\n};\n\nexports.default = {\n    component: (0, _reactRedux.connect)(mapStateToProps)(Login)\n};\n\n//# sourceURL=webpack:///./src/shared/components/Login/Login.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/Login/styles.scss":
+/*!*************************************************!*\
+  !*** ./src/shared/components/Login/styles.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/shared/components/Login/styles.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/components/NotFound/NotFound.js":
+/*!****************************************************!*\
+  !*** ./src/shared/components/NotFound/NotFound.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nvar _helmet = __webpack_require__(/*! ../../helpers/helmet */ \"./src/shared/helpers/helmet.js\");\n\nvar _helmet2 = _interopRequireDefault(_helmet);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar NotFound = function NotFound(_ref) {\n    var _ref$staticContext = _ref.staticContext,\n        staticContext = _ref$staticContext === undefined ? {} : _ref$staticContext;\n\n    staticContext.notFound = true;\n\n    var headInfo = {\n        title: '404: Page not found',\n        ogTitle: 'Page not found',\n        ogURL: 'http://localhost:3000'\n    };\n\n    return _react2.default.createElement(\n        'div',\n        { className: 'row justify-content-md-center' },\n        _react2.default.createElement(\n            'div',\n            { className: 'col-md-12 text-center' },\n            _react2.default.createElement(_helmet2.default, headInfo),\n            _react2.default.createElement(\n                'h1',\n                null,\n                '404: PAGE NOT FOUND'\n            ),\n            _react2.default.createElement(\n                'p',\n                null,\n                _react2.default.createElement(\n                    _reactRouterDom.Link,\n                    { to: '/', className: 'navbar-brand' },\n                    'Go back to the Home Page'\n                )\n            )\n        )\n    );\n};\n\nexports.default = {\n    component: NotFound\n};\n\n//# sourceURL=webpack:///./src/shared/components/NotFound/NotFound.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/UserList/UserList.js":
+/*!****************************************************!*\
+  !*** ./src/shared/components/UserList/UserList.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\n__webpack_require__(/*! ./styles.scss */ \"./src/shared/components/UserList/styles.scss\");\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _users = __webpack_require__(/*! ../../actions/users */ \"./src/shared/actions/users.js\");\n\nvar _requireAuth = __webpack_require__(/*! ../hoc/requireAuth */ \"./src/shared/components/hoc/requireAuth.js\");\n\nvar _requireAuth2 = _interopRequireDefault(_requireAuth);\n\nvar _helmet = __webpack_require__(/*! ../../helpers/helmet */ \"./src/shared/helpers/helmet.js\");\n\nvar _helmet2 = _interopRequireDefault(_helmet);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar UserList = function (_React$Component) {\n    _inherits(UserList, _React$Component);\n\n    function UserList() {\n        _classCallCheck(this, UserList);\n\n        return _possibleConstructorReturn(this, (UserList.__proto__ || Object.getPrototypeOf(UserList)).apply(this, arguments));\n    }\n\n    _createClass(UserList, [{\n        key: 'componentDidMount',\n\n\n        // THIS IS FOR NAVIGATION WITHIN THE APPLICATION\n        value: function componentDidMount() {\n            this.props.fetchUsers();\n        }\n    }, {\n        key: 'renderUsers',\n        value: function renderUsers() {\n            var users = this.props.users;\n\n            return users.map(function (_ref) {\n                var id = _ref.id,\n                    name = _ref.name;\n                return _react2.default.createElement(\n                    'li',\n                    { key: id, className: 'list-group-item' },\n                    name\n                );\n            });\n        }\n    }, {\n        key: 'render',\n        value: function render() {\n            var headInfo = {\n                title: 'Mi Accounting | Users List',\n                ogTitle: 'Users List',\n                ogURL: 'http://localhost:3000/users'\n            };\n\n            return _react2.default.createElement(\n                'div',\n                { className: 'row justify-content-md-center' },\n                _react2.default.createElement(\n                    'div',\n                    { className: 'col-md-12 text-center' },\n                    _react2.default.createElement(_helmet2.default, headInfo),\n                    _react2.default.createElement(\n                        'h1',\n                        null,\n                        'Here is a list of all the users!'\n                    ),\n                    _react2.default.createElement(\n                        'ul',\n                        { className: 'list-group', style: { width: \"50%\", marginLeft: \"25%\" } },\n                        this.renderUsers()\n                    )\n                )\n            );\n        }\n    }]);\n\n    return UserList;\n}(_react2.default.Component);\n\n;\n\n// THE FETCHED DATA FROM THE 'ACTIONS' IS NOW AVAILABLE IN THE STORE\nvar mapStateToProps = function mapStateToProps(_ref2) {\n    var users = _ref2.users,\n        authUser = _ref2.authUser;\n\n    return {\n        users: users,\n        authUser: authUser\n    };\n};\n\n// EXECUTE THE FUNCTION THATS GET CALLED IN THE ACTIONS\n// NOW THE DATA IS AVAILABLE IN THE STORE AND CAN BE USED TO SHOW DATA\nexports.default = {\n    component: (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _users.fetchUsers })((0, _requireAuth2.default)(UserList)),\n    loadData: function loadData(_ref3) {\n        var dispatch = _ref3.dispatch;\n        return dispatch((0, _users.fetchUsers)());\n    }\n};\n\n//# sourceURL=webpack:///./src/shared/components/UserList/UserList.js?");
+
+/***/ }),
+
+/***/ "./src/shared/components/UserList/styles.scss":
+/*!****************************************************!*\
+  !*** ./src/shared/components/UserList/styles.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/shared/components/UserList/styles.scss?");
+
+/***/ }),
+
+/***/ "./src/shared/components/hoc/requireAuth.js":
+/*!**************************************************!*\
+  !*** ./src/shared/components/hoc/requireAuth.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"react-redux\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nexports.default = function (ChildComponent) {\n    var RequireAuth = function (_React$Component) {\n        _inherits(RequireAuth, _React$Component);\n\n        function RequireAuth() {\n            _classCallCheck(this, RequireAuth);\n\n            return _possibleConstructorReturn(this, (RequireAuth.__proto__ || Object.getPrototypeOf(RequireAuth)).apply(this, arguments));\n        }\n\n        _createClass(RequireAuth, [{\n            key: 'render',\n            value: function render() {\n                switch (this.props.authUser) {\n                    case false:\n                        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/login' });\n                    case null:\n                        return _react2.default.createElement(\n                            'div',\n                            null,\n                            'Loading...'\n                        );\n                    default:\n                        return _react2.default.createElement(ChildComponent, this.props);\n                }\n            }\n        }]);\n\n        return RequireAuth;\n    }(_react2.default.Component);\n\n    ;\n\n    var mapStateToProps = function mapStateToProps(_ref) {\n        var authUser = _ref.authUser;\n\n        return { authUser: authUser };\n    };\n\n    return (0, _reactRedux.connect)()(RequireAuth);\n};\n\n//# sourceURL=webpack:///./src/shared/components/hoc/requireAuth.js?");
+
+/***/ }),
+
+/***/ "./src/shared/helpers/helmet.js":
+/*!**************************************!*\
+  !*** ./src/shared/helpers/helmet.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactHelmet = __webpack_require__(/*! react-helmet */ \"react-helmet\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Head = function Head(_ref) {\n    var title = _ref.title,\n        ogTitle = _ref.ogTitle,\n        ogURL = _ref.ogURL;\n    return _react2.default.createElement(\n        _reactHelmet.Helmet,\n        null,\n        _react2.default.createElement(\n            'title',\n            null,\n            title\n        ),\n        _react2.default.createElement('meta', { property: 'og:title', content: ogTitle }),\n        _react2.default.createElement('meta', { property: 'og:url', content: ogURL })\n    );\n};\n\nexports.default = Head;\n\n//# sourceURL=webpack:///./src/shared/helpers/helmet.js?");
+
+/***/ }),
+
+/***/ "./src/shared/helpers/store.js":
+/*!*************************************!*\
+  !*** ./src/shared/helpers/store.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _axios = __webpack_require__(/*! axios */ \"axios\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _reduxThunk = __webpack_require__(/*! redux-thunk */ \"redux-thunk\");\n\nvar _reduxThunk2 = _interopRequireDefault(_reduxThunk);\n\nvar _combineReducers = __webpack_require__(/*! ../reducers/combineReducers */ \"./src/shared/reducers/combineReducers.js\");\n\nvar _combineReducers2 = _interopRequireDefault(_combineReducers);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function (req) {\n    var axiosInstance = _axios2.default.create({\n        baseURL: 'http://localhost:3000/api',\n        headers: { cookie: req.get('cookie') || '' }\n    });\n\n    var store = (0, _redux.createStore)(_combineReducers2.default, {}, (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance))));\n\n    // .withExtraArgument(axiosInstance)\n\n    return store;\n};\n\n//# sourceURL=webpack:///./src/shared/helpers/store.js?");
+
+/***/ }),
+
+/***/ "./src/shared/reducers/admins.js":
+/*!***************************************!*\
+  !*** ./src/shared/reducers/admins.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _users = __webpack_require__(/*! ../actions/users */ \"./src/shared/actions/users.js\");\n\nvar adminsReducer = function adminsReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n    var action = arguments[1];\n\n    switch (action.type) {\n        // 'DATA' == THE ARRAY WITHIN THE DATA OF THE PROMISE RESPONSE\n        case _users.FETCH_ADMINS:\n            return action.response.data;\n        default:\n            return state;\n    }\n};\n\nexports.default = adminsReducer;\n\n//# sourceURL=webpack:///./src/shared/reducers/admins.js?");
+
+/***/ }),
+
+/***/ "./src/shared/reducers/authUser.js":
+/*!*****************************************!*\
+  !*** ./src/shared/reducers/authUser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _users = __webpack_require__(/*! ../actions/users */ \"./src/shared/actions/users.js\");\n\n// START WITH NULL, SO WE KNOW IF THE USER IS AUTHENTICATED OR NOT\nvar authUserReducer = function authUserReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;\n    var action = arguments[1];\n\n    switch (action.type) {\n        // 'DATA' == THE ARRAY WITHIN THE DATA OF THE PROMISE RESPONSE\n        // FALSE IF NOT AUTHENTICATED\n        case _users.FETCH_CURRENT_USER:\n            return action.response.data || false;\n        default:\n            return state;\n    }\n};\n\nexports.default = authUserReducer;\n\n//# sourceURL=webpack:///./src/shared/reducers/authUser.js?");
+
+/***/ }),
+
+/***/ "./src/shared/reducers/combineReducers.js":
+/*!************************************************!*\
+  !*** ./src/shared/reducers/combineReducers.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _redux = __webpack_require__(/*! redux */ \"redux\");\n\nvar _authUser = __webpack_require__(/*! ./authUser */ \"./src/shared/reducers/authUser.js\");\n\nvar _authUser2 = _interopRequireDefault(_authUser);\n\nvar _admins = __webpack_require__(/*! ./admins */ \"./src/shared/reducers/admins.js\");\n\nvar _admins2 = _interopRequireDefault(_admins);\n\nvar _users = __webpack_require__(/*! ./users */ \"./src/shared/reducers/users.js\");\n\nvar _users2 = _interopRequireDefault(_users);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = (0, _redux.combineReducers)({\n    users: _users2.default,\n    admins: _admins2.default,\n    authUser: _authUser2.default\n});\n\n//# sourceURL=webpack:///./src/shared/reducers/combineReducers.js?");
+
+/***/ }),
+
+/***/ "./src/shared/reducers/users.js":
+/*!**************************************!*\
+  !*** ./src/shared/reducers/users.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _users = __webpack_require__(/*! ../actions/users */ \"./src/shared/actions/users.js\");\n\nvar usersReducer = function usersReducer() {\n    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n    var action = arguments[1];\n\n    switch (action.type) {\n        // 'DATA' == THE ARRAY WITHIN THE DATA OF THE PROMISE RESPONSE\n        case _users.FETCH_USERS:\n            return action.response.data;\n        default:\n            return state;\n    }\n};\n\nexports.default = usersReducer;\n\n//# sourceURL=webpack:///./src/shared/reducers/users.js?");
+
+/***/ }),
+
+/***/ "./src/shared/routes.js":
+/*!******************************!*\
+  !*** ./src/shared/routes.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _App = __webpack_require__(/*! ./App */ \"./src/shared/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nvar _Home = __webpack_require__(/*! ./components/Home/Home */ \"./src/shared/components/Home/Home.js\");\n\nvar _Home2 = _interopRequireDefault(_Home);\n\nvar _Login = __webpack_require__(/*! ./components/Login/Login */ \"./src/shared/components/Login/Login.js\");\n\nvar _Login2 = _interopRequireDefault(_Login);\n\nvar _AdminList = __webpack_require__(/*! ./components/AdminList/AdminList */ \"./src/shared/components/AdminList/AdminList.js\");\n\nvar _AdminList2 = _interopRequireDefault(_AdminList);\n\nvar _UserList = __webpack_require__(/*! ./components/UserList/UserList */ \"./src/shared/components/UserList/UserList.js\");\n\nvar _UserList2 = _interopRequireDefault(_UserList);\n\nvar _NotFound = __webpack_require__(/*! ./components/NotFound/NotFound */ \"./src/shared/components/NotFound/NotFound.js\");\n\nvar _NotFound2 = _interopRequireDefault(_NotFound);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// THE SPREAD OPERATER LOADS EVERYTHING IN THE EXPORT OF THE COMPONENT\n// THE EXPORT OF THE COMONENT IS AN OBJECT, SO IT LOADS EVERYTHING IN THAT OBJECT\nvar routes = [_extends({}, _App2.default, {\n    routes: [_extends({}, _Home2.default, {\n        path: '/',\n        exact: true\n    }), _extends({}, _Login2.default, {\n        path: '/login'\n    }), _extends({}, _AdminList2.default, {\n        path: '/admins'\n    }), _extends({}, _UserList2.default, {\n        path: '/users'\n    }), _extends({}, _NotFound2.default)]\n})];\n\nexports.default = routes;\n\n//# sourceURL=webpack:///./src/shared/routes.js?");
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"axios\");\n\n//# sourceURL=webpack:///external_%22axios%22?");
+
+/***/ }),
+
+/***/ "babel-polyfill":
+/*!*********************************!*\
+  !*** external "babel-polyfill" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"babel-polyfill\");\n\n//# sourceURL=webpack:///external_%22babel-polyfill%22?");
+
+/***/ }),
+
+/***/ "body-parser":
+/*!******************************!*\
+  !*** external "body-parser" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"body-parser\");\n\n//# sourceURL=webpack:///external_%22body-parser%22?");
+
+/***/ }),
+
+/***/ "cookie-session":
+/*!*********************************!*\
+  !*** external "cookie-session" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cookie-session\");\n\n//# sourceURL=webpack:///external_%22cookie-session%22?");
+
+/***/ }),
+
+/***/ "cors":
+/*!***********************!*\
+  !*** external "cors" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cors\");\n\n//# sourceURL=webpack:///external_%22cors%22?");
+
+/***/ }),
+
+/***/ "express":
+/*!**************************!*\
+  !*** external "express" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+
+/***/ }),
+
+/***/ "express-http-proxy":
+/*!*************************************!*\
+  !*** external "express-http-proxy" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"express-http-proxy\");\n\n//# sourceURL=webpack:///external_%22express-http-proxy%22?");
+
+/***/ }),
+
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"mongoose\");\n\n//# sourceURL=webpack:///external_%22mongoose%22?");
+
+/***/ }),
+
+/***/ "passport":
+/*!***************************!*\
+  !*** external "passport" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"passport\");\n\n//# sourceURL=webpack:///external_%22passport%22?");
+
+/***/ }),
+
+/***/ "passport-google-oauth20":
+/*!******************************************!*\
+  !*** external "passport-google-oauth20" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"passport-google-oauth20\");\n\n//# sourceURL=webpack:///external_%22passport-google-oauth20%22?");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react\");\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-helmet":
+/*!*******************************!*\
+  !*** external "react-helmet" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-helmet\");\n\n//# sourceURL=webpack:///external_%22react-helmet%22?");
+
+/***/ }),
+
+/***/ "react-loadable":
+/*!*********************************!*\
+  !*** external "react-loadable" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-loadable\");\n\n//# sourceURL=webpack:///external_%22react-loadable%22?");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-redux\");\n\n//# sourceURL=webpack:///external_%22react-redux%22?");
+
+/***/ }),
+
+/***/ "react-router-config":
+/*!**************************************!*\
+  !*** external "react-router-config" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-config\");\n\n//# sourceURL=webpack:///external_%22react-router-config%22?");
+
+/***/ }),
+
+/***/ "react-router-dom":
+/*!***********************************!*\
+  !*** external "react-router-dom" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_%22redux%22?");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux-thunk\");\n\n//# sourceURL=webpack:///external_%22redux-thunk%22?");
+
+/***/ }),
+
+/***/ "serialize-javascript":
+/*!***************************************!*\
+  !*** external "serialize-javascript" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"serialize-javascript\");\n\n//# sourceURL=webpack:///external_%22serialize-javascript%22?");
+
+/***/ })
+
+/******/ });
