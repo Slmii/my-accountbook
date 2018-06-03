@@ -14,6 +14,7 @@ class UserList extends React.Component {
 
     renderUsers() {
         const { users } = this.props;
+        console.log(users);
         return users.map(({ id, name }) => (
             <li key={id} className="list-group-item">{name}</li>
         ));
