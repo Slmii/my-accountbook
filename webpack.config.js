@@ -73,7 +73,7 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(pathsToClean),
+		// new CleanWebpackPlugin(pathsToClean),
 		new ExtractTextPlugin('styles.css'),
 		new webpack.DefinePlugin({
 			ISCLIENT: "true"
