@@ -26,6 +26,8 @@ class UserList extends React.Component {
             ogURL: 'http://localhost:3000/users'
         };
 
+        console.log(this.props.users);
+
         return(
             <div className="row justify-content-md-center">
                 <div className="col-md-12 text-center">
