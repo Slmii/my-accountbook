@@ -14,7 +14,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk                            from 'redux-thunk';
 import reducers                         from '../shared/reducers/combineReducers';
 
-// THIS WILL PREPEND '/API' TO ALL API CALLS BY THE 'ACTIONS'
 const axiosInstance = axios.create({
     baseURL: keys.baseURL
 });
