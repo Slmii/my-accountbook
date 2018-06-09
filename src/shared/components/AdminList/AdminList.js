@@ -12,7 +12,7 @@ class AdminList extends React.Component {
 
     renderAdmins() {
         const { admins } = this.props;
-        return admins.map(({ id, name }) => (
+        return [...admins].map(({ id, name }) => (
             <li key={id} className="list-group-item">{name}</li>
         ));
     };
