@@ -5,7 +5,7 @@ const adminsReducer = (state = [], action) => {
     {
         // 'DATA' == THE ARRAY WITHIN THE DATA OF THE PROMISE RESPONSE
         case FETCH_ADMINS:
-            return action.response.data;
+            return action.payload;
         default:
             return state;
     }

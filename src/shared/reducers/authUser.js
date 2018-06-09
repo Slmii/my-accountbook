@@ -7,7 +7,7 @@ const authUserReducer = (state = null, action) => {
         // 'DATA' == THE ARRAY WITHIN THE DATA OF THE PROMISE RESPONSE
         // FALSE IF NOT AUTHENTICATED
         case FETCH_CURRENT_USER:
-            return action.response.data || false;
+            return action.payload || false;
         default:
             return state;
     }
