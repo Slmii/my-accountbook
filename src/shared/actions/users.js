@@ -6,7 +6,7 @@ export const fetchUsers = () => async (dispatch, getState, api) => {
     dispatch({
         type: FETCH_USERS,
         payload: response.data
-    })
+    });
 };
 
 export const FETCH_CURRENT_USER = 'fetch_current_user';
@@ -17,7 +17,7 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
     dispatch({
         type: FETCH_CURRENT_USER,
         payload: response.data
-    })
+    });
 };
 
 export const FETCH_ADMINS = 'fetch_admins';
@@ -28,5 +28,5 @@ export const fetchAdmins = () => async (dispatch, getState, api) => {
     dispatch({
         type: FETCH_ADMINS,
         payload: response.data
-    })
+    });
 };

@@ -1,8 +1,8 @@
 import React           from 'react';
 import { connect }     from 'react-redux';
 import { fetchAdmins } from '../../actions/users';
-import requireAuth     from '../hoc/requireAuth';
 import Head            from '../../helpers/helmet';
+import requireAuth     from '../hoc/requireAuth';
 
 class AdminList extends React.Component {
     // THIS IS FOR NAVIGATION WITHIN THE APPLICATION
@@ -12,7 +12,7 @@ class AdminList extends React.Component {
 
     renderAdmins() {
         const { admins } = this.props;
-        return [...admins].map(({ id, name }) => (
+        return admins.map(({ id, name }) => (
             <li key={id} className="list-group-item">{name}</li>
         ));
     };

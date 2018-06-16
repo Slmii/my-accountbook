@@ -12,7 +12,7 @@ const NotFound = ({ staticContext = {} }) => {
     };
 
     return (
-        <div className="row justify-content-md-center">
+        <div className="row">
             <div className="col-md-12 text-center">
                 <Head {...headInfo} />
                 <h1>404: PAGE NOT FOUND</h1>

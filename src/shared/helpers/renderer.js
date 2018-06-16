@@ -1,8 +1,8 @@
 import React              from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter }   from 'react-router-dom'
-import { renderRoutes }   from 'react-router-config';
 import { Provider }       from 'react-redux';
+import { renderRoutes }   from 'react-router-config';
+import { StaticRouter }   from 'react-router-dom'
 import serialize          from 'serialize-javascript';
 import routes             from '../routes';
 

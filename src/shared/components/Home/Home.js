@@ -1,10 +1,10 @@
 import './styles.scss';
 import React       from 'react';
 import { connect } from 'react-redux';
-import requireAuth from '../hoc/requireAuth';
 import Head        from '../../helpers/helmet';
+import requireAuth from '../hoc/requireAuth';
 
-const Home = () => {
+const Home = ({ authUser }) => {
     const headInfo = { 
         title: 'Mi Accounting | Home Page', 
         ogTitle: 'Home Page', 
@@ -14,15 +14,15 @@ const Home = () => {
     return (
         <div>
             <Head {...headInfo} />
-            <div className="row text-center" style={{display: "flex", alignItems: "center"}}>
+            <div className="row text-center">
                 <div className="col-md-12">
-                    <h1>Welcome</h1>
+                    <h1>Welcome {authUser.name}</h1>
                     <p>Check this out</p>
                 </div>
             </div>
             <div className="row text-center">
                 <div className="col-md-12">
-                    <button type="button" className="btn btn-primary" onClick={() => console.log('I am pressed!')}>Press me</button>
+                    <button type="button" className="btn btn-primary" onClick={() => alert('I am pressed!')}>Press me</button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 const mongoose       = require('mongoose');
 const passport       = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const keys           = require('../config/keys');
 const User           = mongoose.model('users');
 
@@ -18,27 +19,55 @@ passport.use(
         callbackURL: '/auth/google/callback',
         proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
-        User.findOne({ googleId: profile.id })
-        .then(user => {
-            if (user)
-            {
-                // USER WITH THE GOOGLE PROFILE ID ALREADY EXISTS
-                done(null, user);
-            }
-            else
-            {
-                // ADD THE FOLLOWING DATA FROM THE GOOGLE INFO TO THE USERS COLLECTION
-                new User({
-                    googleId: profile.id,
-                    email: profile.emails[0].value,
-                    name: profile.displayName
-                })
-                .save()
-                .then(user => done(null, user))
-                .catch(error => console.log(error));
-            }
-        })
-        .catch(error => console.log(error));
+    async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({ 
+            googleId: profile.id 
+        });
+
+        if (existingUser)
+        {
+            return done(null, existingUser);
+        }
+
+        const user = await new User({
+            googleId: profile.id,
+            email: profile.emails[0].value,
+            name: profile.displayName
+        }).save();
+        done(null, user);
+    })
+);
+
+passport.use(new FacebookStrategy({
+        clientID: keys.facebookClientID,
+        clientSecret: keys.facebookClientSecret,
+        callbackURL: '/auth/facebook/callback',
+        enableProof: true,
+        profileFields: [
+            'id', 
+            'email', 
+            'displayName',
+            'last_name', 
+            'first_name', 
+            'gender', 
+            'link', 
+        ]
+    },
+    async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({ 
+            facebookId: profile.id 
+        });
+
+        if (existingUser)
+        {
+            return done(null, existingUser);
+        }
+
+        const user = await new User({
+            facebookId: profile._json.id,
+            email: profile._json.email,
+            name: profile._json.name
+        }).save();
+        done(null, user);
     })
 );

@@ -2,8 +2,8 @@ import './styles.scss';
 import React          from 'react';
 import { connect }    from 'react-redux';
 import { fetchUsers } from '../../actions/users';
-import requireAuth    from '../hoc/requireAuth';
 import Head           from '../../helpers/helmet';
+import requireAuth    from '../hoc/requireAuth';
 
 class UserList extends React.Component {
 

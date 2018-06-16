@@ -1,9 +1,7 @@
-import React             from 'react';
-import { renderRoutes }  from 'react-router-config';
-import { Route, Switch } from 'react-router-dom';
+import React                from 'react';
+import { renderRoutes }     from 'react-router-config';
 import { fetchCurrentUser } from './actions/users';
-import Header            from './components/Header/Header';
-import routes            from './routes';
+import Header               from './components/Header/Header';
 
 const App = ({ route }) => (
     <div>

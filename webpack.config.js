@@ -1,10 +1,10 @@
 const autoprefixer		 = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin 	 = require('uglifyjs-webpack-plugin');
 const nodeExternals 	 = require('webpack-node-externals');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path 	  			 = require('path');
+const UglifyJsPlugin 	 = require('uglifyjs-webpack-plugin');
 const webpack 			 = require('webpack');
 
 let pathsToClean = [
@@ -18,18 +18,15 @@ const clientConfig = {
 	output: {
 		path: path.join(__dirname, 'public'),
 		filename: 'bundle.js',
-		publicPath: '/public'
+		publicPath: './public/'
 	},
 	module: {
-		// WHEN A FILE MEETS THE CRITERIA, THEN RUN THE LOADER
-		// IN THIS CASE, LOOK FOR ALL JS FILES AND USE BABEL TO CONVERT REACT, JSX AND ES6 TO ES5
 		rules: [
 			{
 				loader: 'babel-loader',
 				test: /\.js$/,
 				exclude: /node_modules/
 			},
-			// IN THIS CASE, LOOK FOR ALL S/CSS FILES AND USE LOADERS TO CONVERT TO CSS 
 			{
 				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
@@ -58,7 +55,6 @@ const clientConfig = {
 			}
 		]
 	},
-	// TYPE OF SOURCEMAP TO ENHANCE THE DEBUGGING
 	devtool: isProduction ? 'source-map' : 'inline-source-map',
 	optimization: {
 		minimizer: [
@@ -73,7 +69,7 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		// new CleanWebpackPlugin(pathsToClean),
+		new CleanWebpackPlugin(pathsToClean),
 		new ExtractTextPlugin('styles.css'),
 		new webpack.DefinePlugin({
 			ISCLIENT: "true"
@@ -86,8 +82,9 @@ const serverConfig = {
     entry: './src/server/index.js',
     externals: [nodeExternals()],
 	output: {
-		filename: 'server.js',
 		path: path.join(__dirname, 'build'),
+		filename: 'server.js',
+		publicPath: './build/'
 	},
 	module: {
 		rules: [{
@@ -116,8 +113,6 @@ const serverConfig = {
 			ISCLIENT: "false"
 		})
 	]
-	// TYPE OF SOURCEMAP TO ENHANCE THE DEBUGGING
-	// devtool: isProduction ? 'source-map' : 'inline-source-map'
 };
 
 module.exports = [clientConfig, serverConfig];

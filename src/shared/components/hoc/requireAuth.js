@@ -17,9 +17,5 @@ export default ChildComponent => {
         };        
     };
 
-    const mapStateToProps = ({ authUser }) => {
-        return { authUser };
-    };
-
     return connect()(RequireAuth);
 };  
