@@ -8,6 +8,5 @@ module.exports = {
     stripeSecretKey:        process.env.STRIPE_SECRET_KEY,
     mongoURI:               process.env.MONGO_URI,
     cookieKey1:             process.env.COOKIE_KEY1,
-    cookieKey2:             process.env.COOKIE_KEY2,
-    baseURL:                'https://my-accountbook.herokuapp.com/api'
+    cookieKey2:             process.env.COOKIE_KEY2
 };

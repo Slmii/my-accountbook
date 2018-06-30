@@ -9,7 +9,7 @@ import { renderRoutes }  from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk             from 'redux-thunk';
-import keys              from '../api/config/keys';
+import keys              from './config/keys';
 import reducers          from '../shared/reducers/combineReducers';
 import routes            from '../shared/routes';
 
@@ -34,5 +34,6 @@ hydrate(
     document.getElementById('root-app')  
 );
 
-console.log('STRIPE KEY IS', process.env.REACT_APP_STRIPE_KEY);
+console.log('KEYS', keys.baseURL);
+console.log('STRIPE', keys.stripePublishableKey);
 console.log('ENVIRONMENT IS', process.env.NODE_ENV);

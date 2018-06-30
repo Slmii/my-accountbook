@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import '../api/models/User';
-import '../api/services/passport';
+import './api/models/User';
+import './api/services/passport';
 import bodyParser         from 'body-parser';
 import cookieSession      from 'cookie-session';
 import cors               from 'cors';
@@ -15,8 +15,8 @@ import { renderRoutes, matchRoutes } from 'react-router-config';
 import { StaticRouter }   from 'react-router-dom'
 import serialize          from 'serialize-javascript';
 // import Loadable           from 'react-loadable';
-import authRoutes         from '../api/routes/authRoutes';
-import keys               from '../api/config/keys';
+import authRoutes         from './api/routes/authRoutes';
+import keys               from './api/config/keys';
 import createStore        from '../shared/helpers/store';
 import routes             from '../shared/routes';
 

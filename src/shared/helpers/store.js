@@ -1,7 +1,7 @@
 import axios                            from 'axios';
 import { createStore, applyMiddleware } from 'redux';
 import thunk                            from 'redux-thunk';
-import keys                             from '../../api/config/keys';
+import keys                             from '../../client/config/keys';
 import reducers                         from '../reducers/combineReducers';
 
 export default (req) => {
