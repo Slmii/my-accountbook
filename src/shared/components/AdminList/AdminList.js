@@ -46,6 +46,7 @@ const mapStateToProps = ({ admins, authUser }) => {
 }
 
 export default {
+    // CONNECT AND MAP THE CURRENT STATE OF THE STORE TO THE THIS.PROPS OBJECT
     // HOC, THIS WILL RUN THE REQUIRED AUTH FUNCTION AND PASS BACK ALL THE PROPS
     component: connect(mapStateToProps, { fetchAdmins })(requireAuth(AdminList)),
     loadData: ({ dispatch }) => dispatch(fetchAdmins())

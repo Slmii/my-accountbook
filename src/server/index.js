@@ -92,7 +92,9 @@ app.get('*', (req, res) => {
         {
             // IF THE CURRENT PROMISE IS TRUE, WRAP IT WITH A NEW PROMISE AND RESOLVE IT
             return new Promise((resolve, reject) => {
-                promise.then(resolve).catch(resolve);
+                promise
+                .then(resolve)
+                .catch(resolve);
             });
         }
     });
