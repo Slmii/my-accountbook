@@ -17,6 +17,7 @@
         "dev:server": "nodemon --watch build --exec \"node build/server.js\"",
         "dev:build-server-client": "webpack --mode development --watch",
         "build:prod": "cross-env NODE_ENV=production webpack -p",
+        "start": "node build/server.js",
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=true npm install && npm run build:prod"
     },
     "dependencies": {
