@@ -23,9 +23,11 @@ export class Header extends React.Component {
                     { this.renderHeader() &&                 
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
+                                <NavLink className="nav-link" to="/credits" activeClassName="is-active" >Credits <span className="badge badge-pill badge-danger">{this.props.authUser.credits}</span></NavLink>
+                            </li>   
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/users" activeClassName="is-active" >Users</NavLink>
                             </li>   
-                        
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/admins" activeClassName="is-active" >Admins</NavLink>
                             </li> 

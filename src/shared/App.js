@@ -12,6 +12,7 @@ const App = ({ route }) => (
     </div>
 );
 
+// FETCH THE CURRENT USER DATA, LOAD IT IN THE REDUX STORE
 export default {
     component: App,
     loadData: ({ dispatch }) => dispatch(fetchCurrentUser())

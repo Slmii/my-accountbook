@@ -15,8 +15,10 @@ import { renderRoutes, matchRoutes } from 'react-router-config';
 import { StaticRouter }   from 'react-router-dom'
 import serialize          from 'serialize-javascript';
 // import Loadable           from 'react-loadable';
-import authRoutes         from './api/routes/authRoutes';
 import keys               from './api/config/keys';
+import authRoutes         from './api/routes/authRoutes';
+import billingRoutes      from './api/routes/billingRoutes';
+import testData           from './api/routes/getTestData';
 import createStore        from '../shared/helpers/store';
 import routes             from '../shared/routes';
 
@@ -27,9 +29,8 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
 
-// TELL 'PASSPORT' TO MAKE USE THE COOKIES, AND ASSIGN IT TO THE 'REQ', WHICH REPRESENT THE LOADED SESSION
+// TELL 'PASSPORT' TO MAKE USE THE COOKIES, AND ASSIGN THE 'USER OBJ' TO THE 'REQ', WHICH REPRESENT THE LOADED SESSION
 app.use(
     cookieSession({
         // SET COOKIE TO 30 DAYS
@@ -42,40 +43,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 authRoutes(app);
+billingRoutes(app);
+testData(app)
 
-app.get('/api/users', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            name: 'Selami Cetinguney'
-        },
-        {
-            id: 2,
-            name: 'Lina Cetinguney'
-        },
-        {
-            id: 3,
-            name: 'Baby Cetinguney'
-        }
-    ]);
-});
-
-app.get('/api/admins', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            name: 'Admin 1'
-        },
-        {
-            id: 2,
-            name: 'Admin 2'
-        },
-        {
-            id: 3,
-            name: 'Admin 3'
-        }
-    ]);
-});
+// IF ITS AN UNKOWN ROUTE/REQUEST, THEN LOOK IN THE 'PUBLIC' FOLDER FOR THE MACTHING REQUEST
+app.use(express.static('public'));
 
 app.get('*', (req, res) => {
     const store = createStore(req);

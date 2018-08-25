@@ -26,6 +26,7 @@ passport.use(
 
         if (existingUser)
         {
+            // THE 'USER OBJ' GETS ASSIGNED TO THE 'REQ'
             return done(null, existingUser);
         }
 
@@ -34,6 +35,8 @@ passport.use(
             email: profile.emails[0].value,
             name: profile.displayName
         }).save();
+
+        // THE 'USER OBJ' GETS ASSIGNED TO THE 'REQ'
         done(null, user);
     })
 );
@@ -60,6 +63,7 @@ passport.use(new FacebookStrategy({
 
         if (existingUser)
         {
+            // THE 'USER OBJ' GETS ASSIGNED TO THE 'REQ'
             return done(null, existingUser);
         }
 
@@ -68,6 +72,8 @@ passport.use(new FacebookStrategy({
             email: profile._json.email,
             name: profile._json.name
         }).save();
+
+        // THE 'USER OBJ' GETS ASSIGNED TO THE 'REQ'
         done(null, user);
     })
 );
