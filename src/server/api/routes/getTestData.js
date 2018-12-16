@@ -33,5 +33,22 @@ module.exports = app => {
             }
         ]);
     });
+
+    app.get('/api/surveys', (req, res) => {
+        res.json([
+            {
+                id: 1,
+                name: 'Survey 1'
+            },
+            {
+                id: 2,
+                name: 'Survey 2'
+            },
+            {
+                id: 3,
+                name: 'Survey 3'
+            }
+        ]);
+    });
     
 };

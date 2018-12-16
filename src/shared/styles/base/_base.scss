@@ -2,3 +2,80 @@ body
 {
     font-family: Helvetiva, Arial, sans-serif;
 }
+
+.action-btns-fixed-bottom
+{
+    position: fixed;
+    bottom: 0px;
+    right: 15px;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.action-btn
+{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    box-shadow: 1px 3px 5px #888888;
+}
+
+.btn-next::after
+{
+    font-family: "Font Awesome 5 Free";
+    content: "\F054";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    background-color: #006666;
+    width: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.btn-back::before
+{
+    font-family: "Font Awesome 5 Free";
+    content: "\F053";
+    font-weight: 900;
+    position: absolute;
+    right: 164px;
+    bottom: 16px;
+    background-color: #C82333;
+    width: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.btn-success
+{
+    background-color: #008080;
+    border-color: #008080;
+    padding-right: 40px;
+}
+
+.btn-danger
+{
+    padding-left: 39px;
+}
+
+.btn-success:hover
+{
+    background-color: #006666 ;
+    border-color: #006666 ;
+}
+
+.btn-success:not(:disabled):not(.disabled).active, 
+.btn-success:not(:disabled):not(.disabled):active, 
+.show >.btn-success.dropdown-toggle
+{
+    background-color: #006666 ;
+    border-color: #006666 ;
+}
+
+.btn-success.focus, 
+.btn-success:focus
+{
+    box-shadow: 0 0 0 0.2rem rgba(0, 70, 70, .5)
+}

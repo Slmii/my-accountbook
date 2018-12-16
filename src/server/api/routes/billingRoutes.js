@@ -21,8 +21,10 @@ module.exports = app => {
         });
 
         req.user.credits += 5;
+        // SAVE THE NEW INFO OF THE USER IN THE MODEL BECAUSE WE INCREMENTED 5 CREDITS. ALL THE DATA IS ALREADY INSIDE THE 'REQ.USER' OBJECT
         const user = await req.user.save();
         
+        // SEND BACK THE UPDATED USER MODEL
         res.send(user);
     });
 };

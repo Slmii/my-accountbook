@@ -9,7 +9,8 @@ const webpack 			 = require('webpack');
 
 let pathsToClean = [
 	'./build/*.*',
-	'./public/*.*'
+	'./public/*.*',
+	'./public/assets/images/*.*'
 ]
 
 const isProduction = (process.env.NODE_ENV === 'production');
@@ -26,6 +27,28 @@ const clientConfig = {
 				loader: 'babel-loader',
 				test: /\.js$/,
 				exclude: /node_modules/
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: !isProduction ? 'assets/images/[name].[ext]' : 'assets/images/[hash].[ext]'
+							// publicPath: url => url.replace('dist/', "")
+						}  
+					  }
+				]					
+			},
+			{
+				test: /\.(svg|eot|ttf|woff|woff2)$/,
+				use: {
+					loader: 'url-loader',
+					options: {
+						limit: 100000,
+						name: 'assets/fonts/[name].[ext]'
+					}
+				}
 			},
 			{
 				test: /\.s?css$/,

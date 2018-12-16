@@ -1,10 +1,10 @@
-import React              from 'react';
-import { renderToString } from 'react-dom/server';
 import { Provider }       from 'react-redux';
-import { renderRoutes }   from 'react-router-config';
+import React              from 'react';
 import { StaticRouter }   from 'react-router-dom'
-import serialize          from 'serialize-javascript';
+import { renderRoutes }   from 'react-router-config';
+import { renderToString } from 'react-dom/server';
 import routes             from '../routes';
+import serialize          from 'serialize-javascript';
 
 export default (req, store, context) => {
     const content = renderToString(

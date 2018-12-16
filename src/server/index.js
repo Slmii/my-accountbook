@@ -1,6 +1,15 @@
 import 'babel-polyfill';
 import './api/models/User';
+import './api/models/Survey';
 import './api/services/passport';
+import authRoutes         from './api/routes/authRoutes';
+import billingRoutes      from './api/routes/billingRoutes';
+import createStore        from '../shared/helpers/store';
+import keys               from './api/config/keys';
+import routes             from '../shared/routes';
+import surveyRoutes       from './api/routes/surveyRoutes';
+import testData           from './api/routes/getTestData';
+
 import bodyParser         from 'body-parser';
 import cookieSession      from 'cookie-session';
 import cors               from 'cors';
@@ -8,19 +17,12 @@ import express            from 'express';
 import mongoose           from 'mongoose';
 import passport           from 'passport';
 import React              from 'react';
+import serialize          from 'serialize-javascript';
 import { renderToString } from 'react-dom/server';
 import { Helmet }         from 'react-helmet';
 import { Provider }       from 'react-redux';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import { StaticRouter }   from 'react-router-dom'
-import serialize          from 'serialize-javascript';
-// import Loadable           from 'react-loadable';
-import keys               from './api/config/keys';
-import authRoutes         from './api/routes/authRoutes';
-import billingRoutes      from './api/routes/billingRoutes';
-import testData           from './api/routes/getTestData';
-import createStore        from '../shared/helpers/store';
-import routes             from '../shared/routes';
 
 mongoose.connect(keys.mongoURI);
 
@@ -44,7 +46,8 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
-testData(app)
+testData(app);
+surveyRoutes(app);
 
 // IF ITS AN UNKOWN ROUTE/REQUEST, THEN LOOK IN THE 'PUBLIC' FOLDER FOR THE MACTHING REQUEST
 app.use(express.static('public'));
@@ -56,6 +59,7 @@ app.get('*', (req, res) => {
     // CHECKS IF THE COMPONENT (ROUTE) HAS A FUNTION CALLED 'LOADDATA'
     const promises = matchRoutes(routes, req.path).map(({ route }) => {
         return route.loadData 
+        // INITIATE THE 'loadData' FUNCTION IN THE FRONT-END WITH THE DATA FROM THE STORE
         ? route.loadData(store) 
         : null;
     }).map((promise) => {
@@ -76,6 +80,7 @@ app.get('*', (req, res) => {
     .then(() => {
         const context = {};
 
+        // THIS IS THE ROUTES IN THE 'ROUTES.JS' FROM THE SHARED FOLDER
         const content = renderToString(
             <Provider store={store} >
                 <StaticRouter location={req.path} context={context} >
@@ -93,28 +98,27 @@ app.get('*', (req, res) => {
             <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
             <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
             <html>
-            <head>
-                ${helmet.title.toString()}
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                ${helmet.meta.toString()}
+                <head>
+                    ${helmet.title.toString()}
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    ${helmet.meta.toString()}
 
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="styles.css" defer />
-            </head>
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+                    <link rel="stylesheet" type="text/css" href="../styles.css" defer />
+                </head>
 
-            <body>
-                <div id='root-app'>${content}</div>
+                <body>
+                    <div id='root-app'>${content}</div>
 
-                <script src="bundle.js" defer></script>
-                <script>window.INITIAL_STATE = ${serialize(store.getState())}</script>
-                
-                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-            </body>
+                    <script src="../bundle.js" defer></script>
+                    <script>window.INITIAL_STATE = ${serialize(store.getState())}</script>
+                    
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+                </body>
             </html>`;
         
         if (context.url)

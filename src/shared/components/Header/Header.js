@@ -30,9 +30,15 @@ export class Header extends React.Component {
                             </li>   
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/admins" activeClassName="is-active" >Admins</NavLink>
-                            </li> 
-                            <li className="nav-item">
-                                <a className="nav-link" href='/api/logout'>Logout</a>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{this.props.authUser.name}</a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <Link to='/dashboard' className="dropdown-item">Dashboard</Link>
+                                    <Link to='/dashboard' className="dropdown-item">Settings</Link>
+                                    <div className="dropdown-divider"></div>
+                                    <a href='/api/logout' className="dropdown-item">Logout</a>
+                                </div>
                             </li>
                         </ul>
                     }                    

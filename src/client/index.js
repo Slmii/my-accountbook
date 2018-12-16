@@ -13,6 +13,8 @@ import keys              from './config/keys';
 import reducers          from '../shared/reducers/combineReducers';
 import routes            from '../shared/routes';
 
+window.axios = axios;
+
 const axiosInstance = axios.create({
     baseURL: keys.baseURL
 });
@@ -34,6 +36,8 @@ hydrate(
     document.getElementById('root-app')  
 );
 
-console.log('KEYS', keys.baseURL);
-console.log('STRIPE', keys.stripePublishableKey);
+const REACT_VERSION = React.version;
+
+console.log('BASE URL', keys.baseURL);
 console.log('ENVIRONMENT IS', process.env.NODE_ENV);
+console.log('REACT VERSION', REACT_VERSION);

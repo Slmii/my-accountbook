@@ -12,7 +12,7 @@ const Home = ({ authUser }) => {
     };
     
     return (
-        <div>
+        <React.Fragment>
             <Head {...headInfo} />
             <div className="row text-center">
                 <div className="col-md-12">
@@ -25,7 +25,7 @@ const Home = ({ authUser }) => {
                     <button type="button" className="btn btn-primary" onClick={() => alert('I am pressed!')}>Press me</button>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 

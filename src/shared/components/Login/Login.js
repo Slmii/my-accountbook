@@ -17,7 +17,7 @@ class Login extends React.Component {
         };
         
         return (
-            <div>
+            <React.Fragment>
             { this.renderLogin() 
                 ? 
                 <div className="row">
@@ -44,7 +44,7 @@ class Login extends React.Component {
                     </div>
                 </div>
             }
-            </div>
+            </React.Fragment>
         );
     };
 };
